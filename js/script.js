@@ -36,20 +36,28 @@ function changeColor() {
   // put it into the html
   current_rgb.innerHTML = rgb;
   // console.log(rgb);
-  // console.log(colors[random]);
+  // console.log(color);
 }
 
 btn.addEventListener('click', () => {
-  // console.log('Kotha sai krishna');
+  // possible chars in hexcode
   const mylist = '1234567890ABCDEF';
+  // convert it into array
   const arrayOfHexValues = Array.from(mylist);
-  let randomString = arrayOfHexValues.sort(() => 0.5 - Math.random()); // Shuffle array
-  randomString = randomString.slice(0, 6); // Take first 6 shuffled elements
-  randomString = '#' + randomString.join(''); // Convert back to string
-  current_hex.innerHTML = randomString;
-  body.style.backgroundColor = randomString;
+  // shuffle the array
+  let col = arrayOfHexValues.sort(() => 0.5 - Math.random());
+  // take first 6 shuffled items 
+  col = col.slice(0, 6);
+  // convert it into string with '#' prefix
+  col = '#' + col.join('');
+  // put it into html
+  current_hex.innerHTML = col;
+  // change background color to col
+  body.style.backgroundColor = col;
+  // get col in rgb
   const rgb = body.style.backgroundColor;
+  // put it into html
   current_rgb.innerHTML = rgb;
-  // console.log(randomString);
+  // console.log(col);
   // console.log(rgb);
 });
